@@ -1,0 +1,85 @@
+Background:
+
+You are developing an application for people to play puzzle games. Puzzle games and puzzle types will be added from time to time. But at the moment, there are three puzzle types:
+
+Crossword
+Sudoku
+Trivia
+For all puzzle games, you need to store their name (String), difficulty level (int), and points (int). For each type of puzzle, the name of each game is unique. But two games of different puzzle types may have the same name. For example, you can have a Sudoku game and a Trivia game with the same name.
+
+All puzzles must have three operations:
+
+void display() => display a game board
+void updateState(String action) => update the current state of a game with a given user action
+boolean isEndState() => if the game is finished or not
+But the specific implementation of these operations depends on each type of puzzle. The details are given below:
+
+void display()
+Crossword
+Print out "CROSSWORD - Name - Difficulty Level - Points" on the screen (you must use the actual name, difficulty level, and points of the Crossword instance in the above output) (the same will apply to other puzzle types)
+
+Sudoku
+Print out "SUDOKU - Name - Difficulty Level - Points" on the screen
+
+For Trivia
+Print out "TRIVIA - Name - Difficulty Level - Points" on the screen
+
+void updateState(String action)
+Crossword
+Print out "CROSSWORD - action" on the screen (you must use the actual value of the parameter action in the above output)
+
+Sudoku
+Print out "SUDOKU - action" on the screen
+
+Trivia
+Print out "TRIVIA - action" on the screen
+
+boolean isEndState()
+Initially, for all puzzle games, return false. However, after a game receives an action value "end' via the updateState() method, this method must return true
+
+Players can see hints in some puzzles. In particular, only Crossword and Trivia games support showing hints. Hints are given to a game by a method
+
+void setHints(String[] hints)
+
+in the setHints() method, the parameter hints is an array of three String
+
+Hints are retrieved by this method
+
+String getHint()
+
+when this method is called the first time, the first hint (of the three given in the setHints method) is returned. If this method is called again, the second hint is returned. If another call is made, the third hint is returned. For following calls, the first, second, third, first, second, third, etc. hints are returned in that order
+
+A GameManager is also needed to manage all games. The GameManager has a search operation
+
+Puzzle search(String type, String name)
+
+The type parameter contains the type of puzzle to be searched. There are three valid values:
+
+CROSSWORD
+SUDOKU
+TRIVIA
+and the name parameter contains the game's name to be searched.
+
+If there is no matching game, return null, otherwise, return the matched puzzle game object
+
+The GameManager also has a method to get all games
+
+Puzzle[] allGames(String sortField, boolean ascending = true)
+
+The sortField parameter is either: "NAME", "DIFFICULTY", or "POINT"
+
+The returned array must contain all games in the appropriate order based on the sortField. If the second argument (i.e., ascending) is missing or true, the sort is in ASCENDING order; otherwise, it is in DESCENDING order
+
+Finally, create a simple text-based UI to let users: create new games, call games' methods, set and get hints (for Crossword and Trivia games), search for a game, and get/display all games in a specific order.
+
+You must create appropriate unit tests for testable functions.
+
+UI requirement: this is a console application. You need to develop a text-based menu system to interact with users. You can use java.util.Scanner to get user input from the console
+
+Report requirement: the report must be in PDF format. It must include the following content: a brief description of the OOP principles used in your solution; the UML diagrams (use case diagrams, class diagrams, and sequence diagrams are required) depicting your solution; and the working screenshots of your solution. The total length of the report must not exceed 8 pages, including everything. All text/images must be legible with a 100% zoom level.
+
+Deliverables
+You need to provide the following deliverables:
+
+Source code: Java source code
+Technical report: PDF file
